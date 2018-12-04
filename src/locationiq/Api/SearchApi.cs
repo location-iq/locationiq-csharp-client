@@ -35,7 +35,7 @@ namespace locationiq.Api
         /// <param name="format">Format to geocode. Only JSON supported for SDKs</param>
         /// <param name="normalizecity">For responses with no city value in the address section, the next available element in this order - city_district, locality, town, borough, municipality, village, hamlet, quarter, neighbourhood - from the address section will be normalized to city. Defaults to 1 for SDKs.</param>
         /// <param name="addressdetails">Include a breakdown of the address into elements. Defaults to 0. (optional)</param>
-        /// <param name="viewbox">The preferred area to find search results.  To restrict results to those within the viewbox, use along with the bounded option. (optional)</param>
+        /// <param name="viewbox">The preferred area to find search results.  To restrict results to those within the viewbox, use along with the bounded option. Tuple of 4 floats. Any two corner points of the box - &#x60;max_lon,max_lat,min_lon,min_lat&#x60; or &#x60;min_lon,min_lat,max_lon,max_lat&#x60; - are accepted in any order as long as they span a real box.  (optional)</param>
         /// <param name="bounded">Restrict the results to only items contained with the viewbox (optional)</param>
         /// <param name="limit">Limit the number of returned results. Default is 10. (optional, default to 10)</param>
         /// <param name="acceptLanguage">Preferred language order for showing search results, overrides the value specified in the Accept-Language HTTP header. Defaults to en. To use native language for the response when available, use accept-language&#x3D;native (optional)</param>
@@ -43,8 +43,9 @@ namespace locationiq.Api
         /// <param name="namedetails">Include a list of alternative names in the results. These may include language variants, references, operator and brand. (optional)</param>
         /// <param name="dedupe">Sometimes you have several objects in OSM identifying the same place or object in reality. The simplest case is a street being split in many different OSM ways due to different characteristics. Nominatim will attempt to detect such duplicates and only return one match; this is controlled by the dedupe parameter which defaults to 1. Since the limit is, for reasons of efficiency, enforced before and not after de-duplicating, it is possible that de-duplicating leaves you with less results than requested. (optional)</param>
         /// <param name="extratags">Include additional information in the result if available, e.g. wikipedia link, opening hours. (optional)</param>
+        /// <param name="statecode">Adds state or province code when available to the statecode key inside the address element. Currently supported for addresses in the USA, Canada and Australia. Defaults to 0 (optional)</param>
         /// <returns>List&lt;Location&gt;</returns>
-        List<Location> Search (string q, string format, int? normalizecity, int? addressdetails = null, string viewbox = null, int? bounded = null, int? limit = null, string acceptLanguage = null, string countrycodes = null, int? namedetails = null, int? dedupe = null, int? extratags = null);
+        List<Location> Search (string q, string format, int? normalizecity, int? addressdetails = null, string viewbox = null, int? bounded = null, int? limit = null, string acceptLanguage = null, string countrycodes = null, int? namedetails = null, int? dedupe = null, int? extratags = null, int? statecode = null);
 
         /// <summary>
         /// Forward Geocoding
@@ -57,7 +58,7 @@ namespace locationiq.Api
         /// <param name="format">Format to geocode. Only JSON supported for SDKs</param>
         /// <param name="normalizecity">For responses with no city value in the address section, the next available element in this order - city_district, locality, town, borough, municipality, village, hamlet, quarter, neighbourhood - from the address section will be normalized to city. Defaults to 1 for SDKs.</param>
         /// <param name="addressdetails">Include a breakdown of the address into elements. Defaults to 0. (optional)</param>
-        /// <param name="viewbox">The preferred area to find search results.  To restrict results to those within the viewbox, use along with the bounded option. (optional)</param>
+        /// <param name="viewbox">The preferred area to find search results.  To restrict results to those within the viewbox, use along with the bounded option. Tuple of 4 floats. Any two corner points of the box - &#x60;max_lon,max_lat,min_lon,min_lat&#x60; or &#x60;min_lon,min_lat,max_lon,max_lat&#x60; - are accepted in any order as long as they span a real box.  (optional)</param>
         /// <param name="bounded">Restrict the results to only items contained with the viewbox (optional)</param>
         /// <param name="limit">Limit the number of returned results. Default is 10. (optional, default to 10)</param>
         /// <param name="acceptLanguage">Preferred language order for showing search results, overrides the value specified in the Accept-Language HTTP header. Defaults to en. To use native language for the response when available, use accept-language&#x3D;native (optional)</param>
@@ -65,8 +66,9 @@ namespace locationiq.Api
         /// <param name="namedetails">Include a list of alternative names in the results. These may include language variants, references, operator and brand. (optional)</param>
         /// <param name="dedupe">Sometimes you have several objects in OSM identifying the same place or object in reality. The simplest case is a street being split in many different OSM ways due to different characteristics. Nominatim will attempt to detect such duplicates and only return one match; this is controlled by the dedupe parameter which defaults to 1. Since the limit is, for reasons of efficiency, enforced before and not after de-duplicating, it is possible that de-duplicating leaves you with less results than requested. (optional)</param>
         /// <param name="extratags">Include additional information in the result if available, e.g. wikipedia link, opening hours. (optional)</param>
+        /// <param name="statecode">Adds state or province code when available to the statecode key inside the address element. Currently supported for addresses in the USA, Canada and Australia. Defaults to 0 (optional)</param>
         /// <returns>ApiResponse of List&lt;Location&gt;</returns>
-        ApiResponse<List<Location>> SearchWithHttpInfo (string q, string format, int? normalizecity, int? addressdetails = null, string viewbox = null, int? bounded = null, int? limit = null, string acceptLanguage = null, string countrycodes = null, int? namedetails = null, int? dedupe = null, int? extratags = null);
+        ApiResponse<List<Location>> SearchWithHttpInfo (string q, string format, int? normalizecity, int? addressdetails = null, string viewbox = null, int? bounded = null, int? limit = null, string acceptLanguage = null, string countrycodes = null, int? namedetails = null, int? dedupe = null, int? extratags = null, int? statecode = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -80,7 +82,7 @@ namespace locationiq.Api
         /// <param name="format">Format to geocode. Only JSON supported for SDKs</param>
         /// <param name="normalizecity">For responses with no city value in the address section, the next available element in this order - city_district, locality, town, borough, municipality, village, hamlet, quarter, neighbourhood - from the address section will be normalized to city. Defaults to 1 for SDKs.</param>
         /// <param name="addressdetails">Include a breakdown of the address into elements. Defaults to 0. (optional)</param>
-        /// <param name="viewbox">The preferred area to find search results.  To restrict results to those within the viewbox, use along with the bounded option. (optional)</param>
+        /// <param name="viewbox">The preferred area to find search results.  To restrict results to those within the viewbox, use along with the bounded option. Tuple of 4 floats. Any two corner points of the box - &#x60;max_lon,max_lat,min_lon,min_lat&#x60; or &#x60;min_lon,min_lat,max_lon,max_lat&#x60; - are accepted in any order as long as they span a real box.  (optional)</param>
         /// <param name="bounded">Restrict the results to only items contained with the viewbox (optional)</param>
         /// <param name="limit">Limit the number of returned results. Default is 10. (optional, default to 10)</param>
         /// <param name="acceptLanguage">Preferred language order for showing search results, overrides the value specified in the Accept-Language HTTP header. Defaults to en. To use native language for the response when available, use accept-language&#x3D;native (optional)</param>
@@ -88,8 +90,9 @@ namespace locationiq.Api
         /// <param name="namedetails">Include a list of alternative names in the results. These may include language variants, references, operator and brand. (optional)</param>
         /// <param name="dedupe">Sometimes you have several objects in OSM identifying the same place or object in reality. The simplest case is a street being split in many different OSM ways due to different characteristics. Nominatim will attempt to detect such duplicates and only return one match; this is controlled by the dedupe parameter which defaults to 1. Since the limit is, for reasons of efficiency, enforced before and not after de-duplicating, it is possible that de-duplicating leaves you with less results than requested. (optional)</param>
         /// <param name="extratags">Include additional information in the result if available, e.g. wikipedia link, opening hours. (optional)</param>
+        /// <param name="statecode">Adds state or province code when available to the statecode key inside the address element. Currently supported for addresses in the USA, Canada and Australia. Defaults to 0 (optional)</param>
         /// <returns>Task of List&lt;Location&gt;</returns>
-        System.Threading.Tasks.Task<List<Location>> SearchAsync (string q, string format, int? normalizecity, int? addressdetails = null, string viewbox = null, int? bounded = null, int? limit = null, string acceptLanguage = null, string countrycodes = null, int? namedetails = null, int? dedupe = null, int? extratags = null);
+        System.Threading.Tasks.Task<List<Location>> SearchAsync (string q, string format, int? normalizecity, int? addressdetails = null, string viewbox = null, int? bounded = null, int? limit = null, string acceptLanguage = null, string countrycodes = null, int? namedetails = null, int? dedupe = null, int? extratags = null, int? statecode = null);
 
         /// <summary>
         /// Forward Geocoding
@@ -102,7 +105,7 @@ namespace locationiq.Api
         /// <param name="format">Format to geocode. Only JSON supported for SDKs</param>
         /// <param name="normalizecity">For responses with no city value in the address section, the next available element in this order - city_district, locality, town, borough, municipality, village, hamlet, quarter, neighbourhood - from the address section will be normalized to city. Defaults to 1 for SDKs.</param>
         /// <param name="addressdetails">Include a breakdown of the address into elements. Defaults to 0. (optional)</param>
-        /// <param name="viewbox">The preferred area to find search results.  To restrict results to those within the viewbox, use along with the bounded option. (optional)</param>
+        /// <param name="viewbox">The preferred area to find search results.  To restrict results to those within the viewbox, use along with the bounded option. Tuple of 4 floats. Any two corner points of the box - &#x60;max_lon,max_lat,min_lon,min_lat&#x60; or &#x60;min_lon,min_lat,max_lon,max_lat&#x60; - are accepted in any order as long as they span a real box.  (optional)</param>
         /// <param name="bounded">Restrict the results to only items contained with the viewbox (optional)</param>
         /// <param name="limit">Limit the number of returned results. Default is 10. (optional, default to 10)</param>
         /// <param name="acceptLanguage">Preferred language order for showing search results, overrides the value specified in the Accept-Language HTTP header. Defaults to en. To use native language for the response when available, use accept-language&#x3D;native (optional)</param>
@@ -110,8 +113,9 @@ namespace locationiq.Api
         /// <param name="namedetails">Include a list of alternative names in the results. These may include language variants, references, operator and brand. (optional)</param>
         /// <param name="dedupe">Sometimes you have several objects in OSM identifying the same place or object in reality. The simplest case is a street being split in many different OSM ways due to different characteristics. Nominatim will attempt to detect such duplicates and only return one match; this is controlled by the dedupe parameter which defaults to 1. Since the limit is, for reasons of efficiency, enforced before and not after de-duplicating, it is possible that de-duplicating leaves you with less results than requested. (optional)</param>
         /// <param name="extratags">Include additional information in the result if available, e.g. wikipedia link, opening hours. (optional)</param>
+        /// <param name="statecode">Adds state or province code when available to the statecode key inside the address element. Currently supported for addresses in the USA, Canada and Australia. Defaults to 0 (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;Location&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Location>>> SearchAsyncWithHttpInfo (string q, string format, int? normalizecity, int? addressdetails = null, string viewbox = null, int? bounded = null, int? limit = null, string acceptLanguage = null, string countrycodes = null, int? namedetails = null, int? dedupe = null, int? extratags = null);
+        System.Threading.Tasks.Task<ApiResponse<List<Location>>> SearchAsyncWithHttpInfo (string q, string format, int? normalizecity, int? addressdetails = null, string viewbox = null, int? bounded = null, int? limit = null, string acceptLanguage = null, string countrycodes = null, int? namedetails = null, int? dedupe = null, int? extratags = null, int? statecode = null);
         #endregion Asynchronous Operations
     }
 
@@ -220,7 +224,7 @@ namespace locationiq.Api
         /// <param name="format">Format to geocode. Only JSON supported for SDKs</param>
         /// <param name="normalizecity">For responses with no city value in the address section, the next available element in this order - city_district, locality, town, borough, municipality, village, hamlet, quarter, neighbourhood - from the address section will be normalized to city. Defaults to 1 for SDKs.</param>
         /// <param name="addressdetails">Include a breakdown of the address into elements. Defaults to 0. (optional)</param>
-        /// <param name="viewbox">The preferred area to find search results.  To restrict results to those within the viewbox, use along with the bounded option. (optional)</param>
+        /// <param name="viewbox">The preferred area to find search results.  To restrict results to those within the viewbox, use along with the bounded option. Tuple of 4 floats. Any two corner points of the box - &#x60;max_lon,max_lat,min_lon,min_lat&#x60; or &#x60;min_lon,min_lat,max_lon,max_lat&#x60; - are accepted in any order as long as they span a real box.  (optional)</param>
         /// <param name="bounded">Restrict the results to only items contained with the viewbox (optional)</param>
         /// <param name="limit">Limit the number of returned results. Default is 10. (optional, default to 10)</param>
         /// <param name="acceptLanguage">Preferred language order for showing search results, overrides the value specified in the Accept-Language HTTP header. Defaults to en. To use native language for the response when available, use accept-language&#x3D;native (optional)</param>
@@ -228,10 +232,11 @@ namespace locationiq.Api
         /// <param name="namedetails">Include a list of alternative names in the results. These may include language variants, references, operator and brand. (optional)</param>
         /// <param name="dedupe">Sometimes you have several objects in OSM identifying the same place or object in reality. The simplest case is a street being split in many different OSM ways due to different characteristics. Nominatim will attempt to detect such duplicates and only return one match; this is controlled by the dedupe parameter which defaults to 1. Since the limit is, for reasons of efficiency, enforced before and not after de-duplicating, it is possible that de-duplicating leaves you with less results than requested. (optional)</param>
         /// <param name="extratags">Include additional information in the result if available, e.g. wikipedia link, opening hours. (optional)</param>
+        /// <param name="statecode">Adds state or province code when available to the statecode key inside the address element. Currently supported for addresses in the USA, Canada and Australia. Defaults to 0 (optional)</param>
         /// <returns>List&lt;Location&gt;</returns>
-        public List<Location> Search (string q, string format, int? normalizecity, int? addressdetails = null, string viewbox = null, int? bounded = null, int? limit = null, string acceptLanguage = null, string countrycodes = null, int? namedetails = null, int? dedupe = null, int? extratags = null)
+        public List<Location> Search (string q, string format, int? normalizecity, int? addressdetails = null, string viewbox = null, int? bounded = null, int? limit = null, string acceptLanguage = null, string countrycodes = null, int? namedetails = null, int? dedupe = null, int? extratags = null, int? statecode = null)
         {
-             ApiResponse<List<Location>> localVarResponse = SearchWithHttpInfo(q, format, normalizecity, addressdetails, viewbox, bounded, limit, acceptLanguage, countrycodes, namedetails, dedupe, extratags);
+             ApiResponse<List<Location>> localVarResponse = SearchWithHttpInfo(q, format, normalizecity, addressdetails, viewbox, bounded, limit, acceptLanguage, countrycodes, namedetails, dedupe, extratags, statecode);
              return localVarResponse.Data;
         }
 
@@ -243,7 +248,7 @@ namespace locationiq.Api
         /// <param name="format">Format to geocode. Only JSON supported for SDKs</param>
         /// <param name="normalizecity">For responses with no city value in the address section, the next available element in this order - city_district, locality, town, borough, municipality, village, hamlet, quarter, neighbourhood - from the address section will be normalized to city. Defaults to 1 for SDKs.</param>
         /// <param name="addressdetails">Include a breakdown of the address into elements. Defaults to 0. (optional)</param>
-        /// <param name="viewbox">The preferred area to find search results.  To restrict results to those within the viewbox, use along with the bounded option. (optional)</param>
+        /// <param name="viewbox">The preferred area to find search results.  To restrict results to those within the viewbox, use along with the bounded option. Tuple of 4 floats. Any two corner points of the box - &#x60;max_lon,max_lat,min_lon,min_lat&#x60; or &#x60;min_lon,min_lat,max_lon,max_lat&#x60; - are accepted in any order as long as they span a real box.  (optional)</param>
         /// <param name="bounded">Restrict the results to only items contained with the viewbox (optional)</param>
         /// <param name="limit">Limit the number of returned results. Default is 10. (optional, default to 10)</param>
         /// <param name="acceptLanguage">Preferred language order for showing search results, overrides the value specified in the Accept-Language HTTP header. Defaults to en. To use native language for the response when available, use accept-language&#x3D;native (optional)</param>
@@ -251,8 +256,9 @@ namespace locationiq.Api
         /// <param name="namedetails">Include a list of alternative names in the results. These may include language variants, references, operator and brand. (optional)</param>
         /// <param name="dedupe">Sometimes you have several objects in OSM identifying the same place or object in reality. The simplest case is a street being split in many different OSM ways due to different characteristics. Nominatim will attempt to detect such duplicates and only return one match; this is controlled by the dedupe parameter which defaults to 1. Since the limit is, for reasons of efficiency, enforced before and not after de-duplicating, it is possible that de-duplicating leaves you with less results than requested. (optional)</param>
         /// <param name="extratags">Include additional information in the result if available, e.g. wikipedia link, opening hours. (optional)</param>
+        /// <param name="statecode">Adds state or province code when available to the statecode key inside the address element. Currently supported for addresses in the USA, Canada and Australia. Defaults to 0 (optional)</param>
         /// <returns>ApiResponse of List&lt;Location&gt;</returns>
-        public ApiResponse< List<Location> > SearchWithHttpInfo (string q, string format, int? normalizecity, int? addressdetails = null, string viewbox = null, int? bounded = null, int? limit = null, string acceptLanguage = null, string countrycodes = null, int? namedetails = null, int? dedupe = null, int? extratags = null)
+        public ApiResponse< List<Location> > SearchWithHttpInfo (string q, string format, int? normalizecity, int? addressdetails = null, string viewbox = null, int? bounded = null, int? limit = null, string acceptLanguage = null, string countrycodes = null, int? namedetails = null, int? dedupe = null, int? extratags = null, int? statecode = null)
         {
             // verify the required parameter 'q' is set
             if (q == null)
@@ -297,6 +303,7 @@ namespace locationiq.Api
             if (namedetails != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "namedetails", namedetails)); // query parameter
             if (dedupe != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "dedupe", dedupe)); // query parameter
             if (extratags != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "extratags", extratags)); // query parameter
+            if (statecode != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "statecode", statecode)); // query parameter
 
             // authentication (key) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
@@ -330,7 +337,7 @@ namespace locationiq.Api
         /// <param name="format">Format to geocode. Only JSON supported for SDKs</param>
         /// <param name="normalizecity">For responses with no city value in the address section, the next available element in this order - city_district, locality, town, borough, municipality, village, hamlet, quarter, neighbourhood - from the address section will be normalized to city. Defaults to 1 for SDKs.</param>
         /// <param name="addressdetails">Include a breakdown of the address into elements. Defaults to 0. (optional)</param>
-        /// <param name="viewbox">The preferred area to find search results.  To restrict results to those within the viewbox, use along with the bounded option. (optional)</param>
+        /// <param name="viewbox">The preferred area to find search results.  To restrict results to those within the viewbox, use along with the bounded option. Tuple of 4 floats. Any two corner points of the box - &#x60;max_lon,max_lat,min_lon,min_lat&#x60; or &#x60;min_lon,min_lat,max_lon,max_lat&#x60; - are accepted in any order as long as they span a real box.  (optional)</param>
         /// <param name="bounded">Restrict the results to only items contained with the viewbox (optional)</param>
         /// <param name="limit">Limit the number of returned results. Default is 10. (optional, default to 10)</param>
         /// <param name="acceptLanguage">Preferred language order for showing search results, overrides the value specified in the Accept-Language HTTP header. Defaults to en. To use native language for the response when available, use accept-language&#x3D;native (optional)</param>
@@ -338,10 +345,11 @@ namespace locationiq.Api
         /// <param name="namedetails">Include a list of alternative names in the results. These may include language variants, references, operator and brand. (optional)</param>
         /// <param name="dedupe">Sometimes you have several objects in OSM identifying the same place or object in reality. The simplest case is a street being split in many different OSM ways due to different characteristics. Nominatim will attempt to detect such duplicates and only return one match; this is controlled by the dedupe parameter which defaults to 1. Since the limit is, for reasons of efficiency, enforced before and not after de-duplicating, it is possible that de-duplicating leaves you with less results than requested. (optional)</param>
         /// <param name="extratags">Include additional information in the result if available, e.g. wikipedia link, opening hours. (optional)</param>
+        /// <param name="statecode">Adds state or province code when available to the statecode key inside the address element. Currently supported for addresses in the USA, Canada and Australia. Defaults to 0 (optional)</param>
         /// <returns>Task of List&lt;Location&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Location>> SearchAsync (string q, string format, int? normalizecity, int? addressdetails = null, string viewbox = null, int? bounded = null, int? limit = null, string acceptLanguage = null, string countrycodes = null, int? namedetails = null, int? dedupe = null, int? extratags = null)
+        public async System.Threading.Tasks.Task<List<Location>> SearchAsync (string q, string format, int? normalizecity, int? addressdetails = null, string viewbox = null, int? bounded = null, int? limit = null, string acceptLanguage = null, string countrycodes = null, int? namedetails = null, int? dedupe = null, int? extratags = null, int? statecode = null)
         {
-             ApiResponse<List<Location>> localVarResponse = await SearchAsyncWithHttpInfo(q, format, normalizecity, addressdetails, viewbox, bounded, limit, acceptLanguage, countrycodes, namedetails, dedupe, extratags);
+             ApiResponse<List<Location>> localVarResponse = await SearchAsyncWithHttpInfo(q, format, normalizecity, addressdetails, viewbox, bounded, limit, acceptLanguage, countrycodes, namedetails, dedupe, extratags, statecode);
              return localVarResponse.Data;
 
         }
@@ -354,7 +362,7 @@ namespace locationiq.Api
         /// <param name="format">Format to geocode. Only JSON supported for SDKs</param>
         /// <param name="normalizecity">For responses with no city value in the address section, the next available element in this order - city_district, locality, town, borough, municipality, village, hamlet, quarter, neighbourhood - from the address section will be normalized to city. Defaults to 1 for SDKs.</param>
         /// <param name="addressdetails">Include a breakdown of the address into elements. Defaults to 0. (optional)</param>
-        /// <param name="viewbox">The preferred area to find search results.  To restrict results to those within the viewbox, use along with the bounded option. (optional)</param>
+        /// <param name="viewbox">The preferred area to find search results.  To restrict results to those within the viewbox, use along with the bounded option. Tuple of 4 floats. Any two corner points of the box - &#x60;max_lon,max_lat,min_lon,min_lat&#x60; or &#x60;min_lon,min_lat,max_lon,max_lat&#x60; - are accepted in any order as long as they span a real box.  (optional)</param>
         /// <param name="bounded">Restrict the results to only items contained with the viewbox (optional)</param>
         /// <param name="limit">Limit the number of returned results. Default is 10. (optional, default to 10)</param>
         /// <param name="acceptLanguage">Preferred language order for showing search results, overrides the value specified in the Accept-Language HTTP header. Defaults to en. To use native language for the response when available, use accept-language&#x3D;native (optional)</param>
@@ -362,8 +370,9 @@ namespace locationiq.Api
         /// <param name="namedetails">Include a list of alternative names in the results. These may include language variants, references, operator and brand. (optional)</param>
         /// <param name="dedupe">Sometimes you have several objects in OSM identifying the same place or object in reality. The simplest case is a street being split in many different OSM ways due to different characteristics. Nominatim will attempt to detect such duplicates and only return one match; this is controlled by the dedupe parameter which defaults to 1. Since the limit is, for reasons of efficiency, enforced before and not after de-duplicating, it is possible that de-duplicating leaves you with less results than requested. (optional)</param>
         /// <param name="extratags">Include additional information in the result if available, e.g. wikipedia link, opening hours. (optional)</param>
+        /// <param name="statecode">Adds state or province code when available to the statecode key inside the address element. Currently supported for addresses in the USA, Canada and Australia. Defaults to 0 (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;Location&gt;)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<List<Location>>> SearchAsyncWithHttpInfo (string q, string format, int? normalizecity, int? addressdetails = null, string viewbox = null, int? bounded = null, int? limit = null, string acceptLanguage = null, string countrycodes = null, int? namedetails = null, int? dedupe = null, int? extratags = null)
+        public async System.Threading.Tasks.Task<ApiResponse<List<Location>>> SearchAsyncWithHttpInfo (string q, string format, int? normalizecity, int? addressdetails = null, string viewbox = null, int? bounded = null, int? limit = null, string acceptLanguage = null, string countrycodes = null, int? namedetails = null, int? dedupe = null, int? extratags = null, int? statecode = null)
         {
             // verify the required parameter 'q' is set
             if (q == null)
@@ -408,6 +417,7 @@ namespace locationiq.Api
             if (namedetails != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "namedetails", namedetails)); // query parameter
             if (dedupe != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "dedupe", dedupe)); // query parameter
             if (extratags != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "extratags", extratags)); // query parameter
+            if (statecode != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "statecode", statecode)); // query parameter
 
             // authentication (key) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))

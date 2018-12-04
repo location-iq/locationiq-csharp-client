@@ -36,25 +36,45 @@ namespace locationiq.Model
         /// <param name="houseNumber">houseNumber.</param>
         /// <param name="road">road.</param>
         /// <param name="residential">residential.</param>
+        /// <param name="borough">borough.</param>
+        /// <param name="neighbourhood">neighbourhood.</param>
+        /// <param name="quarter">quarter.</param>
+        /// <param name="hamlet">hamlet.</param>
+        /// <param name="suburb">suburb.</param>
+        /// <param name="island">island.</param>
         /// <param name="village">village.</param>
+        /// <param name="town">town.</param>
+        /// <param name="city">city.</param>
+        /// <param name="cityDistrict">cityDistrict.</param>
         /// <param name="county">county.</param>
         /// <param name="state">state.</param>
+        /// <param name="stateDistrict">stateDistrict.</param>
         /// <param name="postcode">postcode.</param>
         /// <param name="country">country.</param>
         /// <param name="countryCode">countryCode.</param>
-        /// <param name="city">city.</param>
-        public Address(string houseNumber = default(string), string road = default(string), string residential = default(string), string village = default(string), string county = default(string), string state = default(string), string postcode = default(string), string country = default(string), string countryCode = default(string), string city = default(string))
+        /// <param name="stateCode">stateCode.</param>
+        public Address(string houseNumber = default(string), string road = default(string), string residential = default(string), string borough = default(string), string neighbourhood = default(string), string quarter = default(string), string hamlet = default(string), string suburb = default(string), string island = default(string), string village = default(string), string town = default(string), string city = default(string), string cityDistrict = default(string), string county = default(string), string state = default(string), string stateDistrict = default(string), string postcode = default(string), string country = default(string), string countryCode = default(string), string stateCode = default(string))
         {
             this.HouseNumber = houseNumber;
             this.Road = road;
             this.Residential = residential;
+            this.Borough = borough;
+            this.Neighbourhood = neighbourhood;
+            this.Quarter = quarter;
+            this.Hamlet = hamlet;
+            this.Suburb = suburb;
+            this.Island = island;
             this.Village = village;
+            this.Town = town;
+            this.City = city;
+            this.CityDistrict = cityDistrict;
             this.County = county;
             this.State = state;
+            this.StateDistrict = stateDistrict;
             this.Postcode = postcode;
             this.Country = country;
             this.CountryCode = countryCode;
-            this.City = city;
+            this.StateCode = stateCode;
         }
         
         /// <summary>
@@ -76,10 +96,64 @@ namespace locationiq.Model
         public string Residential { get; set; }
 
         /// <summary>
+        /// Gets or Sets Borough
+        /// </summary>
+        [DataMember(Name="borough", EmitDefaultValue=false)]
+        public string Borough { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Neighbourhood
+        /// </summary>
+        [DataMember(Name="neighbourhood", EmitDefaultValue=false)]
+        public string Neighbourhood { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Quarter
+        /// </summary>
+        [DataMember(Name="quarter", EmitDefaultValue=false)]
+        public string Quarter { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Hamlet
+        /// </summary>
+        [DataMember(Name="hamlet", EmitDefaultValue=false)]
+        public string Hamlet { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Suburb
+        /// </summary>
+        [DataMember(Name="suburb", EmitDefaultValue=false)]
+        public string Suburb { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Island
+        /// </summary>
+        [DataMember(Name="island", EmitDefaultValue=false)]
+        public string Island { get; set; }
+
+        /// <summary>
         /// Gets or Sets Village
         /// </summary>
         [DataMember(Name="village", EmitDefaultValue=false)]
         public string Village { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Town
+        /// </summary>
+        [DataMember(Name="town", EmitDefaultValue=false)]
+        public string Town { get; set; }
+
+        /// <summary>
+        /// Gets or Sets City
+        /// </summary>
+        [DataMember(Name="city", EmitDefaultValue=false)]
+        public string City { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CityDistrict
+        /// </summary>
+        [DataMember(Name="city_district", EmitDefaultValue=false)]
+        public string CityDistrict { get; set; }
 
         /// <summary>
         /// Gets or Sets County
@@ -92,6 +166,12 @@ namespace locationiq.Model
         /// </summary>
         [DataMember(Name="state", EmitDefaultValue=false)]
         public string State { get; set; }
+
+        /// <summary>
+        /// Gets or Sets StateDistrict
+        /// </summary>
+        [DataMember(Name="state_district", EmitDefaultValue=false)]
+        public string StateDistrict { get; set; }
 
         /// <summary>
         /// Gets or Sets Postcode
@@ -112,10 +192,10 @@ namespace locationiq.Model
         public string CountryCode { get; set; }
 
         /// <summary>
-        /// Gets or Sets City
+        /// Gets or Sets StateCode
         /// </summary>
-        [DataMember(Name="city", EmitDefaultValue=false)]
-        public string City { get; set; }
+        [DataMember(Name="state_code", EmitDefaultValue=false)]
+        public string StateCode { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -128,13 +208,23 @@ namespace locationiq.Model
             sb.Append("  HouseNumber: ").Append(HouseNumber).Append("\n");
             sb.Append("  Road: ").Append(Road).Append("\n");
             sb.Append("  Residential: ").Append(Residential).Append("\n");
+            sb.Append("  Borough: ").Append(Borough).Append("\n");
+            sb.Append("  Neighbourhood: ").Append(Neighbourhood).Append("\n");
+            sb.Append("  Quarter: ").Append(Quarter).Append("\n");
+            sb.Append("  Hamlet: ").Append(Hamlet).Append("\n");
+            sb.Append("  Suburb: ").Append(Suburb).Append("\n");
+            sb.Append("  Island: ").Append(Island).Append("\n");
             sb.Append("  Village: ").Append(Village).Append("\n");
+            sb.Append("  Town: ").Append(Town).Append("\n");
+            sb.Append("  City: ").Append(City).Append("\n");
+            sb.Append("  CityDistrict: ").Append(CityDistrict).Append("\n");
             sb.Append("  County: ").Append(County).Append("\n");
             sb.Append("  State: ").Append(State).Append("\n");
+            sb.Append("  StateDistrict: ").Append(StateDistrict).Append("\n");
             sb.Append("  Postcode: ").Append(Postcode).Append("\n");
             sb.Append("  Country: ").Append(Country).Append("\n");
             sb.Append("  CountryCode: ").Append(CountryCode).Append("\n");
-            sb.Append("  City: ").Append(City).Append("\n");
+            sb.Append("  StateCode: ").Append(StateCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -185,9 +275,54 @@ namespace locationiq.Model
                     this.Residential.Equals(input.Residential))
                 ) && 
                 (
+                    this.Borough == input.Borough ||
+                    (this.Borough != null &&
+                    this.Borough.Equals(input.Borough))
+                ) && 
+                (
+                    this.Neighbourhood == input.Neighbourhood ||
+                    (this.Neighbourhood != null &&
+                    this.Neighbourhood.Equals(input.Neighbourhood))
+                ) && 
+                (
+                    this.Quarter == input.Quarter ||
+                    (this.Quarter != null &&
+                    this.Quarter.Equals(input.Quarter))
+                ) && 
+                (
+                    this.Hamlet == input.Hamlet ||
+                    (this.Hamlet != null &&
+                    this.Hamlet.Equals(input.Hamlet))
+                ) && 
+                (
+                    this.Suburb == input.Suburb ||
+                    (this.Suburb != null &&
+                    this.Suburb.Equals(input.Suburb))
+                ) && 
+                (
+                    this.Island == input.Island ||
+                    (this.Island != null &&
+                    this.Island.Equals(input.Island))
+                ) && 
+                (
                     this.Village == input.Village ||
                     (this.Village != null &&
                     this.Village.Equals(input.Village))
+                ) && 
+                (
+                    this.Town == input.Town ||
+                    (this.Town != null &&
+                    this.Town.Equals(input.Town))
+                ) && 
+                (
+                    this.City == input.City ||
+                    (this.City != null &&
+                    this.City.Equals(input.City))
+                ) && 
+                (
+                    this.CityDistrict == input.CityDistrict ||
+                    (this.CityDistrict != null &&
+                    this.CityDistrict.Equals(input.CityDistrict))
                 ) && 
                 (
                     this.County == input.County ||
@@ -198,6 +333,11 @@ namespace locationiq.Model
                     this.State == input.State ||
                     (this.State != null &&
                     this.State.Equals(input.State))
+                ) && 
+                (
+                    this.StateDistrict == input.StateDistrict ||
+                    (this.StateDistrict != null &&
+                    this.StateDistrict.Equals(input.StateDistrict))
                 ) && 
                 (
                     this.Postcode == input.Postcode ||
@@ -215,9 +355,9 @@ namespace locationiq.Model
                     this.CountryCode.Equals(input.CountryCode))
                 ) && 
                 (
-                    this.City == input.City ||
-                    (this.City != null &&
-                    this.City.Equals(input.City))
+                    this.StateCode == input.StateCode ||
+                    (this.StateCode != null &&
+                    this.StateCode.Equals(input.StateCode))
                 );
         }
 
@@ -236,20 +376,40 @@ namespace locationiq.Model
                     hashCode = hashCode * 59 + this.Road.GetHashCode();
                 if (this.Residential != null)
                     hashCode = hashCode * 59 + this.Residential.GetHashCode();
+                if (this.Borough != null)
+                    hashCode = hashCode * 59 + this.Borough.GetHashCode();
+                if (this.Neighbourhood != null)
+                    hashCode = hashCode * 59 + this.Neighbourhood.GetHashCode();
+                if (this.Quarter != null)
+                    hashCode = hashCode * 59 + this.Quarter.GetHashCode();
+                if (this.Hamlet != null)
+                    hashCode = hashCode * 59 + this.Hamlet.GetHashCode();
+                if (this.Suburb != null)
+                    hashCode = hashCode * 59 + this.Suburb.GetHashCode();
+                if (this.Island != null)
+                    hashCode = hashCode * 59 + this.Island.GetHashCode();
                 if (this.Village != null)
                     hashCode = hashCode * 59 + this.Village.GetHashCode();
+                if (this.Town != null)
+                    hashCode = hashCode * 59 + this.Town.GetHashCode();
+                if (this.City != null)
+                    hashCode = hashCode * 59 + this.City.GetHashCode();
+                if (this.CityDistrict != null)
+                    hashCode = hashCode * 59 + this.CityDistrict.GetHashCode();
                 if (this.County != null)
                     hashCode = hashCode * 59 + this.County.GetHashCode();
                 if (this.State != null)
                     hashCode = hashCode * 59 + this.State.GetHashCode();
+                if (this.StateDistrict != null)
+                    hashCode = hashCode * 59 + this.StateDistrict.GetHashCode();
                 if (this.Postcode != null)
                     hashCode = hashCode * 59 + this.Postcode.GetHashCode();
                 if (this.Country != null)
                     hashCode = hashCode * 59 + this.Country.GetHashCode();
                 if (this.CountryCode != null)
                     hashCode = hashCode * 59 + this.CountryCode.GetHashCode();
-                if (this.City != null)
-                    hashCode = hashCode * 59 + this.City.GetHashCode();
+                if (this.StateCode != null)
+                    hashCode = hashCode * 59 + this.StateCode.GetHashCode();
                 return hashCode;
             }
         }

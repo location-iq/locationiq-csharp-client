@@ -34,9 +34,11 @@ namespace locationiq.Model
         /// Initializes a new instance of the <see cref="Daybalance" /> class.
         /// </summary>
         /// <param name="day">day.</param>
-        public Daybalance(int? day = default(int?))
+        /// <param name="bonus">bonus.</param>
+        public Daybalance(int? day = default(int?), int? bonus = default(int?))
         {
             this.Day = day;
+            this.Bonus = bonus;
         }
         
         /// <summary>
@@ -44,6 +46,12 @@ namespace locationiq.Model
         /// </summary>
         [DataMember(Name="day", EmitDefaultValue=false)]
         public int? Day { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Bonus
+        /// </summary>
+        [DataMember(Name="bonus", EmitDefaultValue=false)]
+        public int? Bonus { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -54,6 +62,7 @@ namespace locationiq.Model
             var sb = new StringBuilder();
             sb.Append("class Daybalance {\n");
             sb.Append("  Day: ").Append(Day).Append("\n");
+            sb.Append("  Bonus: ").Append(Bonus).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -92,6 +101,11 @@ namespace locationiq.Model
                     this.Day == input.Day ||
                     (this.Day != null &&
                     this.Day.Equals(input.Day))
+                ) && 
+                (
+                    this.Bonus == input.Bonus ||
+                    (this.Bonus != null &&
+                    this.Bonus.Equals(input.Bonus))
                 );
         }
 
@@ -106,6 +120,8 @@ namespace locationiq.Model
                 int hashCode = 41;
                 if (this.Day != null)
                     hashCode = hashCode * 59 + this.Day.GetHashCode();
+                if (this.Bonus != null)
+                    hashCode = hashCode * 59 + this.Bonus.GetHashCode();
                 return hashCode;
             }
         }

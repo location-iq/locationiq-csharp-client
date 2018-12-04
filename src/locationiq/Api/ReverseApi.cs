@@ -39,8 +39,9 @@ namespace locationiq.Api
         /// <param name="acceptLanguage">Preferred language order for showing search results, overrides the value specified in the Accept-Language HTTP header. Defaults to en. To use native language for the response when available, use accept-language&#x3D;native (optional)</param>
         /// <param name="namedetails">Include a list of alternative names in the results. These may include language variants, references, operator and brand. (optional)</param>
         /// <param name="extratags">Include additional information in the result if available, e.g. wikipedia link, opening hours. (optional)</param>
+        /// <param name="statecode">Adds state or province code when available to the statecode key inside the address element. Currently supported for addresses in the USA, Canada and Australia. Defaults to 0 (optional)</param>
         /// <returns>Location</returns>
-        Location Reverse (decimal? lat, decimal? lon, string format, int? normalizecity, int? addressdetails = null, string acceptLanguage = null, int? namedetails = null, int? extratags = null);
+        Location Reverse (decimal? lat, decimal? lon, string format, int? normalizecity, int? addressdetails = null, string acceptLanguage = null, int? namedetails = null, int? extratags = null, int? statecode = null);
 
         /// <summary>
         /// Reverse Geocoding
@@ -57,8 +58,9 @@ namespace locationiq.Api
         /// <param name="acceptLanguage">Preferred language order for showing search results, overrides the value specified in the Accept-Language HTTP header. Defaults to en. To use native language for the response when available, use accept-language&#x3D;native (optional)</param>
         /// <param name="namedetails">Include a list of alternative names in the results. These may include language variants, references, operator and brand. (optional)</param>
         /// <param name="extratags">Include additional information in the result if available, e.g. wikipedia link, opening hours. (optional)</param>
+        /// <param name="statecode">Adds state or province code when available to the statecode key inside the address element. Currently supported for addresses in the USA, Canada and Australia. Defaults to 0 (optional)</param>
         /// <returns>ApiResponse of Location</returns>
-        ApiResponse<Location> ReverseWithHttpInfo (decimal? lat, decimal? lon, string format, int? normalizecity, int? addressdetails = null, string acceptLanguage = null, int? namedetails = null, int? extratags = null);
+        ApiResponse<Location> ReverseWithHttpInfo (decimal? lat, decimal? lon, string format, int? normalizecity, int? addressdetails = null, string acceptLanguage = null, int? namedetails = null, int? extratags = null, int? statecode = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -76,8 +78,9 @@ namespace locationiq.Api
         /// <param name="acceptLanguage">Preferred language order for showing search results, overrides the value specified in the Accept-Language HTTP header. Defaults to en. To use native language for the response when available, use accept-language&#x3D;native (optional)</param>
         /// <param name="namedetails">Include a list of alternative names in the results. These may include language variants, references, operator and brand. (optional)</param>
         /// <param name="extratags">Include additional information in the result if available, e.g. wikipedia link, opening hours. (optional)</param>
+        /// <param name="statecode">Adds state or province code when available to the statecode key inside the address element. Currently supported for addresses in the USA, Canada and Australia. Defaults to 0 (optional)</param>
         /// <returns>Task of Location</returns>
-        System.Threading.Tasks.Task<Location> ReverseAsync (decimal? lat, decimal? lon, string format, int? normalizecity, int? addressdetails = null, string acceptLanguage = null, int? namedetails = null, int? extratags = null);
+        System.Threading.Tasks.Task<Location> ReverseAsync (decimal? lat, decimal? lon, string format, int? normalizecity, int? addressdetails = null, string acceptLanguage = null, int? namedetails = null, int? extratags = null, int? statecode = null);
 
         /// <summary>
         /// Reverse Geocoding
@@ -94,8 +97,9 @@ namespace locationiq.Api
         /// <param name="acceptLanguage">Preferred language order for showing search results, overrides the value specified in the Accept-Language HTTP header. Defaults to en. To use native language for the response when available, use accept-language&#x3D;native (optional)</param>
         /// <param name="namedetails">Include a list of alternative names in the results. These may include language variants, references, operator and brand. (optional)</param>
         /// <param name="extratags">Include additional information in the result if available, e.g. wikipedia link, opening hours. (optional)</param>
+        /// <param name="statecode">Adds state or province code when available to the statecode key inside the address element. Currently supported for addresses in the USA, Canada and Australia. Defaults to 0 (optional)</param>
         /// <returns>Task of ApiResponse (Location)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Location>> ReverseAsyncWithHttpInfo (decimal? lat, decimal? lon, string format, int? normalizecity, int? addressdetails = null, string acceptLanguage = null, int? namedetails = null, int? extratags = null);
+        System.Threading.Tasks.Task<ApiResponse<Location>> ReverseAsyncWithHttpInfo (decimal? lat, decimal? lon, string format, int? normalizecity, int? addressdetails = null, string acceptLanguage = null, int? namedetails = null, int? extratags = null, int? statecode = null);
         #endregion Asynchronous Operations
     }
 
@@ -208,10 +212,11 @@ namespace locationiq.Api
         /// <param name="acceptLanguage">Preferred language order for showing search results, overrides the value specified in the Accept-Language HTTP header. Defaults to en. To use native language for the response when available, use accept-language&#x3D;native (optional)</param>
         /// <param name="namedetails">Include a list of alternative names in the results. These may include language variants, references, operator and brand. (optional)</param>
         /// <param name="extratags">Include additional information in the result if available, e.g. wikipedia link, opening hours. (optional)</param>
+        /// <param name="statecode">Adds state or province code when available to the statecode key inside the address element. Currently supported for addresses in the USA, Canada and Australia. Defaults to 0 (optional)</param>
         /// <returns>Location</returns>
-        public Location Reverse (decimal? lat, decimal? lon, string format, int? normalizecity, int? addressdetails = null, string acceptLanguage = null, int? namedetails = null, int? extratags = null)
+        public Location Reverse (decimal? lat, decimal? lon, string format, int? normalizecity, int? addressdetails = null, string acceptLanguage = null, int? namedetails = null, int? extratags = null, int? statecode = null)
         {
-             ApiResponse<Location> localVarResponse = ReverseWithHttpInfo(lat, lon, format, normalizecity, addressdetails, acceptLanguage, namedetails, extratags);
+             ApiResponse<Location> localVarResponse = ReverseWithHttpInfo(lat, lon, format, normalizecity, addressdetails, acceptLanguage, namedetails, extratags, statecode);
              return localVarResponse.Data;
         }
 
@@ -227,8 +232,9 @@ namespace locationiq.Api
         /// <param name="acceptLanguage">Preferred language order for showing search results, overrides the value specified in the Accept-Language HTTP header. Defaults to en. To use native language for the response when available, use accept-language&#x3D;native (optional)</param>
         /// <param name="namedetails">Include a list of alternative names in the results. These may include language variants, references, operator and brand. (optional)</param>
         /// <param name="extratags">Include additional information in the result if available, e.g. wikipedia link, opening hours. (optional)</param>
+        /// <param name="statecode">Adds state or province code when available to the statecode key inside the address element. Currently supported for addresses in the USA, Canada and Australia. Defaults to 0 (optional)</param>
         /// <returns>ApiResponse of Location</returns>
-        public ApiResponse< Location > ReverseWithHttpInfo (decimal? lat, decimal? lon, string format, int? normalizecity, int? addressdetails = null, string acceptLanguage = null, int? namedetails = null, int? extratags = null)
+        public ApiResponse< Location > ReverseWithHttpInfo (decimal? lat, decimal? lon, string format, int? normalizecity, int? addressdetails = null, string acceptLanguage = null, int? namedetails = null, int? extratags = null, int? statecode = null)
         {
             // verify the required parameter 'lat' is set
             if (lat == null)
@@ -272,6 +278,7 @@ namespace locationiq.Api
             if (acceptLanguage != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "accept-language", acceptLanguage)); // query parameter
             if (namedetails != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "namedetails", namedetails)); // query parameter
             if (extratags != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "extratags", extratags)); // query parameter
+            if (statecode != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "statecode", statecode)); // query parameter
 
             // authentication (key) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
@@ -309,10 +316,11 @@ namespace locationiq.Api
         /// <param name="acceptLanguage">Preferred language order for showing search results, overrides the value specified in the Accept-Language HTTP header. Defaults to en. To use native language for the response when available, use accept-language&#x3D;native (optional)</param>
         /// <param name="namedetails">Include a list of alternative names in the results. These may include language variants, references, operator and brand. (optional)</param>
         /// <param name="extratags">Include additional information in the result if available, e.g. wikipedia link, opening hours. (optional)</param>
+        /// <param name="statecode">Adds state or province code when available to the statecode key inside the address element. Currently supported for addresses in the USA, Canada and Australia. Defaults to 0 (optional)</param>
         /// <returns>Task of Location</returns>
-        public async System.Threading.Tasks.Task<Location> ReverseAsync (decimal? lat, decimal? lon, string format, int? normalizecity, int? addressdetails = null, string acceptLanguage = null, int? namedetails = null, int? extratags = null)
+        public async System.Threading.Tasks.Task<Location> ReverseAsync (decimal? lat, decimal? lon, string format, int? normalizecity, int? addressdetails = null, string acceptLanguage = null, int? namedetails = null, int? extratags = null, int? statecode = null)
         {
-             ApiResponse<Location> localVarResponse = await ReverseAsyncWithHttpInfo(lat, lon, format, normalizecity, addressdetails, acceptLanguage, namedetails, extratags);
+             ApiResponse<Location> localVarResponse = await ReverseAsyncWithHttpInfo(lat, lon, format, normalizecity, addressdetails, acceptLanguage, namedetails, extratags, statecode);
              return localVarResponse.Data;
 
         }
@@ -329,8 +337,9 @@ namespace locationiq.Api
         /// <param name="acceptLanguage">Preferred language order for showing search results, overrides the value specified in the Accept-Language HTTP header. Defaults to en. To use native language for the response when available, use accept-language&#x3D;native (optional)</param>
         /// <param name="namedetails">Include a list of alternative names in the results. These may include language variants, references, operator and brand. (optional)</param>
         /// <param name="extratags">Include additional information in the result if available, e.g. wikipedia link, opening hours. (optional)</param>
+        /// <param name="statecode">Adds state or province code when available to the statecode key inside the address element. Currently supported for addresses in the USA, Canada and Australia. Defaults to 0 (optional)</param>
         /// <returns>Task of ApiResponse (Location)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Location>> ReverseAsyncWithHttpInfo (decimal? lat, decimal? lon, string format, int? normalizecity, int? addressdetails = null, string acceptLanguage = null, int? namedetails = null, int? extratags = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Location>> ReverseAsyncWithHttpInfo (decimal? lat, decimal? lon, string format, int? normalizecity, int? addressdetails = null, string acceptLanguage = null, int? namedetails = null, int? extratags = null, int? statecode = null)
         {
             // verify the required parameter 'lat' is set
             if (lat == null)
@@ -374,6 +383,7 @@ namespace locationiq.Api
             if (acceptLanguage != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "accept-language", acceptLanguage)); // query parameter
             if (namedetails != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "namedetails", namedetails)); // query parameter
             if (extratags != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "extratags", extratags)); // query parameter
+            if (statecode != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "statecode", statecode)); // query parameter
 
             // authentication (key) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
