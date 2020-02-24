@@ -1,5 +1,5 @@
 
-# Org.OpenAPITools.Model.Balance
+# locationiq.Model.Balance
 
 ## Properties
 

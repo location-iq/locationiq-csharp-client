@@ -1,5 +1,5 @@
 
-# Org.OpenAPITools.Model.Namedetails
+# locationiq.Model.Namedetails
 
 ## Properties
 

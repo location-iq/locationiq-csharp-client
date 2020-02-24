@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Api.MatchingApi
+# locationiq.Api.MatchingApi
 
 All URIs are relative to *https://eu1.locationiq.com/v1*
 
@@ -21,9 +21,9 @@ Matching API matches or snaps given GPS points to the road network in the most p
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using locationiq.Api;
+using locationiq.Client;
+using locationiq.Model;
 
 namespace Example
 {

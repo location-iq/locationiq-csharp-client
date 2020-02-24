@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Api.DirectionsApi
+# locationiq.Api.DirectionsApi
 
 All URIs are relative to *https://eu1.locationiq.com/v1*
 
@@ -21,9 +21,9 @@ Finds the fastest route between coordinates in the supplied order.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using locationiq.Api;
+using locationiq.Client;
+using locationiq.Model;
 
 namespace Example
 {

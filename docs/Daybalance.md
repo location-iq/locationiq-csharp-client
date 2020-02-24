@@ -1,5 +1,5 @@
 
-# Org.OpenAPITools.Model.Daybalance
+# locationiq.Model.Daybalance
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Api.AutocompleteApi
+# locationiq.Api.AutocompleteApi
 
 All URIs are relative to *https://eu1.locationiq.com/v1*
 
@@ -21,9 +21,9 @@ The Autocomplete API is a variant of the Search API that returns place predictio
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using locationiq.Api;
+using locationiq.Client;
+using locationiq.Model;
 
 namespace Example
 {

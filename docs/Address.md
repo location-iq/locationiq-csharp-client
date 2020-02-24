@@ -1,5 +1,5 @@
 
-# Org.OpenAPITools.Model.Address
+# locationiq.Model.Address
 
 ## Properties
 

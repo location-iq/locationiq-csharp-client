@@ -1,5 +1,5 @@
 
-# Org.OpenAPITools.Model.DirectionsNearest
+# locationiq.Model.DirectionsNearest
 
 ## Properties
 

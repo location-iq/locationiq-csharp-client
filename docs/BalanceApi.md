@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Api.BalanceApi
+# locationiq.Api.BalanceApi
 
 All URIs are relative to *https://eu1.locationiq.com/v1*
 
@@ -21,9 +21,9 @@ The Balance API provides a count of request credits left in the user's account f
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using locationiq.Api;
+using locationiq.Client;
+using locationiq.Model;
 
 namespace Example
 {

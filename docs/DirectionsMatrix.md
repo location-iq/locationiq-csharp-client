@@ -1,5 +1,5 @@
 
-# Org.OpenAPITools.Model.DirectionsMatrix
+# locationiq.Model.DirectionsMatrix
 
 ## Properties
 

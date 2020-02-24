@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Api.MatrixApi
+# locationiq.Api.MatrixApi
 
 All URIs are relative to *https://eu1.locationiq.com/v1*
 
@@ -21,9 +21,9 @@ Computes duration of the fastest route between all pairs of supplied coordinates
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using locationiq.Api;
+using locationiq.Client;
+using locationiq.Model;
 
 namespace Example
 {

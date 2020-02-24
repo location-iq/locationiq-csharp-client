@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Api.ReverseApi
+# locationiq.Api.ReverseApi
 
 All URIs are relative to *https://eu1.locationiq.com/v1*
 
@@ -21,9 +21,9 @@ Reverse geocoding is the process of converting a coordinate or location (latitud
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using locationiq.Api;
+using locationiq.Client;
+using locationiq.Model;
 
 namespace Example
 {

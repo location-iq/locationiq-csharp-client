@@ -1,5 +1,5 @@
 
-# Org.OpenAPITools.Model.Error
+# locationiq.Model.Error
 
 ## Properties
 

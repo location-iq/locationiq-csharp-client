@@ -1,5 +1,5 @@
 
-# Org.OpenAPITools.Model.Matchquality
+# locationiq.Model.Matchquality
 
 ## Properties
 
