@@ -12,7 +12,7 @@ The version of the OpenAPI document: 1.1.0
     
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BDF21F63-408D-43A5-84F2-92AFB24BFB80}</ProjectGuid>
+    <ProjectGuid>{D2FD3C35-2A4F-4C33-A3CA-ED28B7B75CCB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>locationiq</RootNamespace>

@@ -81,7 +81,7 @@ The version of the OpenAPI document: 1.1.0
   <Import Project="$(MsBuildToolsPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
       <ProjectReference Include="..\locationiq\locationiq.csproj">
-          <Project>{BDF21F63-408D-43A5-84F2-92AFB24BFB80}</Project>
+          <Project>{D2FD3C35-2A4F-4C33-A3CA-ED28B7B75CCB}</Project>
           <Name>locationiq</Name>
       </ProjectReference>
   </ItemGroup>
