@@ -134,7 +134,8 @@ namespace Org.OpenAPITools.Client
             // add file parameter, if any
             foreach(var param in fileParams)
             {
-                request.AddFile(param.Value.Name, param.Value.Writer, param.Value.FileName, param.Value.ContentType);
+                var len = param.Value.ContentLength;
+                request.AddFile(param.Value.Name, param.Value.Writer, param.Value.FileName, len, param.Value.ContentType);
             }
 
             if (postBody != null) // http body (model or byte[]) parameter
